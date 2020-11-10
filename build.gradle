@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+
+    // vavr
+    compile("io.vavr:vavr:0.10.3")
+
+    // lombok
+    compileOnly('org.projectlombok:lombok:1.18.16')
+    annotationProcessor('org.projectlombok:lombok:1.18.16')
+
+    // junit 5
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+
+    // assertj
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.6.1'
+
+    // mockito
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.21.0'
+    testCompile 'org.mockito:mockito-junit-jupiter:3.5.15'
+}
